@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="ar-AE">
+    <meta name="author" content="Powerless"> 
+    <meta name="Copyright" content="{$site_seo_title}">
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+<link rel="icon" href="__TMPL__Public/images/favicon.ico" type="image/ico">
+<link href="__TMPL__Public/style/index.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/style/base.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("span.div").hide();
+ $(".sis-li li").hover(function(){
+  $("span.div",this).slideToggle(500);
+ });
+});
+</script>
+<script type="text/javascript">
+//Slider
+jQuery(window).load(function() {
+	jQuery('#slider').nivoSlider({
+	effect: 'fold',
+	slices:15,
+	animSpeed:500, //Slide transition speed
+	pauseTime:5000,
+	controlNav: false,
+	directionNavHide: false,
+	prevText: 'prev',
+	nextText: 'next',
+	startSlide:0, //Set starting Slide (0 index)
+	directionNav:true, //Next &amp; Prev
+	afterLoad: function(){
+		jQuery(".nivo-caption").animate({top:"60"}, {easing:"easeOutBack", duration: 500})
+		},
+		beforeChange: function(){
+		jQuery(".nivo-caption").animate({top:"-300"}, {easing:"easeInBack", duration: 500})
+		},
+		afterChange: function(){
+		jQuery(".nivo-caption").animate({top:"60"}, {easing:"easeOutBack", duration: 500})
+		}
+	});
+	
+});
+
+</script>
+        <script type="text/javascript" language="javascript">  
+        function nofind(){
+        var img=event.srcElement;
+        img.src="__TMPL__Public/images/no-img.jpg";
+        img.onerror=null; 
+        }
+        </script>
+</head>
+<body>
+<!--nav start-->
+       <div class="headnavbg">
+       	   <ul>
+       	   	   <li><a href="{:u('list/index',array('id'=>181))}">Законодательство</a></li>
+       	   	   <li><a href="{:u('list/index',array('id'=>182))}">Виза</a></li>
+       	   	   <li><a href="{:u('list/index',array('id'=>183))}">Секреты успеха</a></li>
+       	   	   <li><a href="{:u('list/index',array('id'=>184))}">Бизнес-этикет</a></a></li>
+       	   	   <li><a href="{:u('list/index',array('id'=>185))}">Все о торговле</a></li>
+       	   </ul>
+       </div>
+       
+<!--nav stop-->
+<!--content start-->
+<div id="mainbg">
+	<div class="th_1">
+		<div class="flash_box f-l" id="flash_box">
+			<div class="flash_con" id="flash_con">
+
+                <php>
+                $yz_all=sp_sql_posts('cid:181,182,183;field:tid,post_title,smeta;limit:4;order:post_date desc');
+                </php>
+                <foreach name="yz_all" item="all">
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                </php>
+                <div class="split">
+                    <a href="{:U('article/index',array('id'=>$all['tid']))}"><img src="{$site_host}data/upload/{$smeta.thumb}" width="570" height="330"/>
+                    <span class="shadow"></span>
+                    <div class="wz"><p class="tit f18">{$all.post_title}</p></div>
+                    </a>
+                </div>
+                </foreach>
+                
+
+		</div>
+		<div class="f_btn mt10">
+			<div class="fbtn_con" id="fbtn_con">
+			<a href="javascript:void(0)" target="_self"><i></i></a>
+			<a href="javascript:void(0)" target="_self"><i></i></a>
+			<a href="javascript:void(0)" target="_self"><i></i></a>
+			<a href="javascript:void(0)" target="_self"><i></i></a>
+			</div>
+		</div>
+
+		<span class="prev"></span> 
+		<span class="next"></span>	
+
+	</div>
+
+	<script type="text/javascript">
+	Qfast.add('widgets', { path: "__TMPL__Public/js/terminator2.2.min.js", type: "js", requires: ['fx'] });
+	Qfast(false, 'widgets', function () {
+	    K.tabs({
+	        id: 'flash_box',   //焦点图包裹id
+	        conId: "flash_con",  //** 大图域包裹id
+	        tabId:"fbtn_con",
+			tabTn:"a",
+		    conCn: '.split', //** 大图域配置class			
+	        auto: 1,   //自动播放
+	        effect: 'fade',   //效果配置
+	        eType: 'click', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class								
+	        interval: 4000  //** 停顿时间
+	          })
+
+	})
+	</script>
+	<div class="righthotnewsbg">
+		<ul>
+                <php>
+                $qt_all=sp_sql_posts('cid:184,185;field:tid,post_excerpt;limit:4;order:post_date desc');
+                </php>
+                <foreach name="qt_all" item="all">
+					<li><a href="{:U('article/index',array('id'=>$all['tid']))}"><h3>{$all.post_excerpt}</h3></a></li>
+                </foreach>
+                
+		</ul>
+	</div>
+    </div>
+</div>
+<div id="">
+</div>
+<!--content stop-->
+<!--main start-->
+<div id="mainbg">
+        <php>
+        $tzmy_all=sp_sql_posts('cid:181;field:tid,post_title,post_excerpt,smeta;limit:3;order:post_date desc');
+        </php>
+        <foreach name="tzmy_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+            <ul>
+                <li><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="290" height="220"/></li>
+                <span>
+                <a href="{:U('article/index',array('id'=>$all['tid']))}"><h2>{$all.post_title}</h2></a>
+                <a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></span>
+            </ul>
+        </foreach>
+</div>
+<!--main stop-->
+<div class="wrapper1">
+<!--mltop部分-->
+	<div class="mltop">
+    <!--左部-->
+    	<ul class="minl">
+        <php>
+        $Искусство_all=sp_sql_posts('cid:182;field:tid,post_title,post_excerpt,smeta;limit:1;order:post_date desc');
+        </php>
+        <foreach name="Искусство_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+        	<li><a href="{:U('article/index',array('id'=>$all['tid']))}"><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" height="400" width="347"/></a></li>
+            <li><a href="{:U('article/index',array('id'=>$all['tid']))}"><h3>{$all.post_title}</h3><p>{$all.post_excerpt}</p></a></li>	
+        </foreach>
+        
+        </ul>
+        
+     <!--中部-->
+     	<div class="minc">
+        <php>
+        $Туризм_all=sp_sql_posts('cid:183;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+        </php>
+        <foreach name="Туризм_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+        	<ul class="minc_t">
+            	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" height="105" width="287"/></a></li>
+                <li>
+                	<h3><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h3>
+                    <P><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></p>
+                    
+                </li>
+            </ul>
+        </foreach>
+        
+        	
+        </div>
+      
+      <!--右部-->   
+      <div class="min_r">
+      	<div class="min_r_l">
+        <php>
+        $Бизнес_all=sp_sql_posts('cid:184;field:tid,post_excerpt,smeta;limit:2;order:post_date desc');
+        </php>
+        <foreach name="Бизнес_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+       		<ul>
+            	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="115" height="115"/></a></li>
+                <li class="txt"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></li>
+            </ul>
+        </foreach>
+           
+        </div>
+        
+        
+        <div class="min_r_r">
+        <php>
+        $Благотворительность_all=sp_sql_posts('cid:184;field:tid,post_excerpt,smeta;limit:4;order:post_date desc');
+        $a =0;
+        </php>
+        <foreach name="Благотворительность_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        $a++;
+        if($a >2)
+        {
+        </php>
+       		<ul>
+            	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="115" height="115"/></a></li>
+                <li class="txt"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></li>
+            </ul>
+        <php> } </php>
+        </foreach>
+        </div>
+ 	</div> 
+	</div>
+</div>
+</div>
+<!--wrapper2开始-->
+<div class="wrapper2">	
+        <php>
+        $Наука_all=sp_sql_posts('cid:185;field:tid,post_title,post_excerpt,smeta;limit:6;order:post_date desc');
+        </php>
+        <foreach name="Наука_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+            <ul class="graphic">
+                <li class="photo"><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" height="120" width="170"/></a></li>
+                <li class="title">
+                    <h3><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h3>
+                    <P><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></p>
+                </li>
+            </ul>
+        </foreach>
+	<div class="ad2">
+    	<php>
+            $main_c=sp_getslide('main_c');
+        </php>
+        <foreach name="main_c" item="c"><php>break;</php></foreach>
+        <img onerror="nofind();" src="{$site_host}data/upload/{$c.slide_pic}" alt="{$c.slide_name}"  height="115" width="960" />
+	</div>
+<!--wrapper2结束-->
+<!--famous开始-->
+    <div class="famous">
+         <php>
+        $интервью_all=sp_sql_posts('cid:185;field:tid,post_title,post_excerpt,smeta;limit:6;order:post_date desc');
+        </php>
+        <foreach name="интервью_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+        <ul class="person">
+            <li class="photo2"> <a href="{:U('article/index',array('id'=>$all['tid']))}">
+            <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="130" height="135"/></a></li>
+                    <h3 class="int"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h3>
+                    <P><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></p>
+        </ul>
+        </foreach>
+    </div>
+<!--famous结束-->
+<!--guanggao开始-->
+    <div class="guanggao">
+        <php>
+        $интервью_all=sp_sql_posts('ci181,182,183,184,185;field:tid,smeta;limit:10;order:post_date desc');
+        </php>
+        <foreach name="интервью_all" item="all">
+        <php>
+        $smeta=json_decode($all['smeta'],true);
+        </php>
+        <p><a href="{:U('article/index',array('id'=>$all['tid']))}">
+        <img onerror="nofind();"  src="{$site_host}data/upload/{$smeta.thumb}" width="140" height="100"/></a></p>
+        </foreach>
+    </div>
+    <!--guanggao结束-->  
+</div>
+<!--wrapper2 结束-->  
+
+
+<!-- foot 开始-->
+
+<include file="Public:footer" />
+<!--footer结束 -->	  
+
+</body>
+</html>

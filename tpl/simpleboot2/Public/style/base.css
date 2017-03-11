@@ -1,0 +1,179 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+body {
+	font-size: 14px;
+    background: none repeat scroll 0 0 #fff;
+
+    font-family: Arial,Helvetica,sans-serif;
+
+}
+
+ul {
+
+    list-style: none outside none;
+
+}
+
+img {
+
+    border: medium none;
+
+}
+
+a {
+
+    text-decoration: none;
+}
+
+a:hover {
+
+    color: #f00;
+
+}
+
+.left {
+
+    float: left;
+
+}
+
+.right {
+
+    float: right;
+
+}
+
+.clear {
+
+    clear: both;
+
+}
+
+.clearfix:after {
+
+    clear: both;
+
+    content: ".";
+
+    display: block;
+
+    height: 0;
+
+    overflow: hidden;
+
+}
+
+.imgleft {
+
+    float: left;
+
+    margin: 3px 0 0 12px;
+
+}
+
+.clear {
+
+    clear: both;
+
+}
+
+.clearfix:after {
+
+    clear: both;
+
+    content: ".";
+
+    display: block;
+
+    height: 0;
+
+    overflow: hidden;
+
+}
+
+.wrapper {
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    width: 960px;
+
+}
+.top2 {height: 45px;line-height: 45px;overflow: hidden;background: #EFF4FF;}
+.top2 .ul1 {height: 45px;float: left;}
+.top2 .ul1 li {float: left;padding: 0 15px;border-right: 1px solid #ACACAC;}
+.top2 .ul2 {float: right;}
+.top2 .ul2 li {float: left;margin: 0 5px;}
+.footer {
+
+    line-height: 22px;
+
+    margin: 0 auto;
+
+    padding-bottom: 20px;
+
+    padding-top: 15px;
+
+    width: 960px;
+
+}
+
+.footer a {
+
+    color: #000;
+
+}
+
+.footer span {
+
+    margin: 0 2px;
+
+}
+
+.row {
+
+    height: 22px;
+
+}
+
+
+
+.m4 {color: #000;border-bottom: 1px solid #000;border-top: 1px solid #000;background: #fff;}
+
+.m4tit {line-height: 40px;font-weight: bold;font-size: 20px;margin:10px 30px;}
+
+.m4main {line-height: 30px;margin-left: 20px;}
+
+.bigad {background: #fff;}
+
+.m6 {overflow: hidden;border-bottom: 1px solid #000;border-top: 1px solid #000;background: #fff;}
+
+.m6zuo {width: 666px;}
+
+.m6left {width: 640px;font-size: 16px;font-weight: bold;padding-top: 10px;padding-left: 26px;overflow: hidden;}
+
+.m6leftxia {padding-left: 100px;width: 566px;overflow: hidden;}
+
+.m6leftxia ul{ width:566px; overflow:hidden;}
+
+.m6leftxia ul li{ float:left; height:20px; line-height:20px;}
+
+.m6leftxia ul li a{ color:#000; padding: 0 7px;}
+
+.m6you {overflow: hidden;width: 282px;padding-left: 11px;border-left: 1px solid #000;}
+
+.m6right1 {width: 170px;overflow: hidden;margin-top: 10px;text-align: center;}
+
+.m6right2 {overflow: hidden;margin-top: 6px;}
+
+.m6right2 {overflow: hidden;margin-top: 6px;}
+
+.m6right2 img {width: 82px;height: 83px;border: 3px solid #c3c3c3;}
+

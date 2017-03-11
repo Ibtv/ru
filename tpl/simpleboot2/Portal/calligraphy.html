@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="ar-AE">
+    <meta name="author" content="Powerless"> 
+    <meta name="Copyright" content="{$site_seo_title}">
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+<link rel="icon" href="__TMPL__Public/images/favicon.ico" type="image/ico">
+<link href="__TMPL__Public/style/base.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/style/travel.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/koala.min.1.5.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.7.3.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jQuery-jcMarquee.js"></script>
+<script>
+$(function(){
+    $('#Marquee_x').jcMarquee({ 'marquee':'x','margin_right':'10px','speed':20 });
+	// DIVCSS5提示：10px代表间距，第二个20代表滚动速度
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("span.div").hide();
+ $(".sis-li li").hover(function(){
+  $("span.div",this).slideToggle(500);
+ });
+});
+</script>
+        <script type="text/javascript" language="javascript">  
+        function nofind(){
+        var img=event.srcElement;
+        img.src="__TMPL__Public/images/no-img.jpg";
+        img.onerror=null; 
+        }
+        </script>
+</head>
+<body>
+<!--header nav start-->
+<div id="headnavbg">
+	<ul>
+		<li><a href="{:u('list/index',array('id'=>161))}">Культура</a></li>
+		<li><a href="{:u('list/index',array('id'=>162))}">Искусство</a></li>
+		<li><a href="{:u('list/index',array('id'=>163))}">Живопись и каллиграфия</a></li>
+		<li><a href="{:u('list/index',array('id'=>164))}">Здоровье</a></li>
+		<li><a href="{:u('list/index',array('id'=>165))}">Образование</a></li>
+	</ul>
+</div>
+<!--header nav end-->
+<!--main focus start-->
+<div id="mainfocusbg">
+	<div id="fsD1" class="focus">  
+	    <div id="D1pic1" class="fPic"> 
+					<php>
+			    $travel_all=sp_sql_posts('cid:161,162,163,164,165;field:tid,post_title,smeta;limit:7;order:post_date desc');
+			    </php>
+			    <foreach name="travel_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+	        <div class="fcon" style="display: none;">
+	            <a href="{:U('article/index',array('id'=>$all['tid']))}"><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" style="opacity: 1; "></a>
+	            <span class="shadow"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></span>
+	        </div>
+			    </foreach>
+	          
+	    </div>
+	    <div class="fbg">  
+	    <div class="D1fBt" id="D1fBt">  
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>1</i></a>  
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>3</i></a>  
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a> 
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>5</i></a> 
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>6</i></a> 
+	        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>7</i></a> 
+	    </div>  
+	    </div>  
+	    <span class="prev"></span>   
+	    <span class="next"></span>    
+	</div>  
+	<script type="text/javascript">
+		Qfast.add('widgets', { path: "__TMPL__Public/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+		Qfast(false, 'widgets', function () {
+			K.tabs({
+				id: 'fsD1',   //焦点图包裹id  
+				conId: "D1pic1",  //** 大图域包裹id  
+				tabId:"D1fBt",  
+				tabTn:"a",
+				conCn: '.fcon', //** 大图域配置class       
+				auto: 1,   //自动播放 1或0
+				effect: 'fade',   //效果配置
+				eType: 'click', //** 鼠标事件
+				pageBt:true,//是否有按钮切换页码
+				bns: ['.prev', '.next'],//** 前后按钮配置class                          
+				interval: 3000  //** 停顿时间  
+			}) 
+		})  
+	</script>
+	<div id="rightnewspaperbg">
+		<ul>
+			
+        <php>
+            $travel_rt=sp_getslide('travel_rt');
+        </php>
+        <foreach name="travel_rt" item="rt"><php>break;</php></foreach>
+			<li><img onerror="nofind();" src="{$site_host}data/upload/{$rt.slide_pic}" alt="{$rt.slide_name}" width="290" height="380" /></li>
+		</ul>
+	</div>
+</div>
+<!--main focus end-->
+<!--main graphic start-->
+<div id="graphicbg">
+	<div class="leftnewspicbg">
+				<php>
+    $Рекомендации_all=sp_sql_posts('cid:161;field:tid,post_title,smeta;limit:14;order:post_date desc');
+    $a = 0;
+    </php>
+    <foreach name="Рекомендации_all" item="all">
+	    <php>
+	    $smeta=json_decode($all['smeta'],true);
+	    $a++;
+	    if($a ==1)
+	    {
+	    </php>
+			<ul>
+	     <span><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="315" height="240" /></span>
+				<li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+	    <php>
+	    	}
+	    	if($a>1 && $a !=8){
+	    	</php>
+				<div>
+					<a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a>	
+				</div>
+			<php> }
+			if($a ==8){</php>
+			</ul>
+			<ul>
+	     <span><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="315" height="240" /></span>
+				<li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+			<php>
+				}</php>
+    </foreach>
+    
+			</ul>
+	</div>
+	<div class="rightpicbg">
+		<ul>
+					<php>
+			    	$Питание_all=sp_sql_posts('cid:162;field:tid,smeta;limit:2;order:post_date desc');
+			    </php>
+			    <foreach name="Питание_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+						<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+								<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="300" height="250" />
+						</a></li>
+
+			    </foreach>
+		</ul>
+	</div>
+</div>
+<!--main graphic end-->
+<!--main banner start-->
+<div id="mainbannerbg">
+	<ul>
+        <php>
+            $travel_c=sp_getslide('travel_c');
+        </php>
+        <foreach name="travel_c" item="c"><php>break;</php></foreach>
+			<li><img onerror="nofind();" src="{$site_host}data/upload/{$c.slide_pic}" alt="{$c.slide_name}" width="960" height="80" /></li>
+
+	</ul>
+</div>
+<!--main banner end-->
+<!--main images start-->
+<div id="mainimagesbg">
+	<div class="leftimagesbg">
+				<ul>
+					<php>
+			    	$Природа_all=sp_sql_posts('cid:163;field:tid,smeta;limit:6;order:post_date desc');
+			    </php>
+			    <foreach name="Природа_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+						<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+								<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="315" height="200" />
+						</a></li>
+
+			    </foreach>
+				</ul>
+			</div>
+			<div class="righthdimgbg">
+			<ul class="sis-li">
+				
+					<php>
+			    	$Справочник_all=sp_sql_posts('cid:164;field:tid,post_title,post_excerpt,smeta;limit:3;order:post_date desc');
+			    </php>
+			    <foreach name="Справочник_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+		       <li>
+		        <span class="v1">
+		            <a href="{:U('article/index',array('id'=>$all['tid']))}">
+		            	<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="154" />
+		            </a>
+		            <span class="div">
+		                <a href="{:U('article/index',array('id'=>$all['tid']))}"><h3>{$all.post_title}</h3></a>
+		                <a href="{:U('article/index',array('id'=>$all['tid']))}"><span class="txt">{$all.post_excerpt}</span></a>
+		            </span>
+		        </span>
+		       </li>  
+			    </foreach>  
+		</ul>
+	</div>
+</div>
+<!--main images end-->
+<!--main banner start-->
+<div id="twobannerbg">
+	<div class="leftwentubg">
+		<ul>
+					<php>
+			    	$Обычай_all=sp_sql_posts('cid:165;field:tid,post_title,post_excerpt,smeta;limit:7;order:post_date desc');
+			    	$a=0;
+			    </php>
+			    <foreach name="Обычай_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    $a++;
+				    if($a==1){
+				    </php>
+			<div class="firstwentubg">
+			<span><a href="{:U('article/index',array('id'=>$all['tid']))}">
+					<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="170" height="160" />
+			</a></span>
+			<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</div>
+				    <php>
+				    	}
+				    if($a >1)
+				    {
+				    </php>
+						<li>
+							<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="65" height="60" />
+							<div class="lefthotbg"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+						</li>
+				    	<php> } </php>  
+			    </foreach>  
+
+		</ul>
+		<ul>
+		   			<php>
+			    	$Культура_all=sp_sql_posts('cid:165;field:tid,post_title,post_excerpt,smeta;limit:7,7;order:post_date desc');
+			    	$a=0;
+			    </php>
+			    <foreach name="Культура_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    $a++;
+				    if($a==1){
+				    </php>
+			<div class="firstwentubg">
+			<span><a href="{:U('article/index',array('id'=>$all['tid']))}">
+					<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="170" height="160" />
+			</a></span>
+			<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</div>
+				    <php>
+				    	}
+				    if($a >1)
+				    {
+				    </php>
+						<li>
+							<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="65" height="60" />
+							<div class="lefthotbg"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+						</li>
+				    	<php> } </php>  
+			    </foreach>  
+		</ul>
+	</div>
+	<div class="rightwenaroundbg">
+		<ul>
+					<php>
+			    	$fggl_all=sp_sql_posts('cid:161,162;field:tid,post_excerpt,smeta;limit:4;order:post_date desc');
+			    </php>
+			    <foreach name="fggl_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+					  <li>
+						  <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" style="float:left;" width="100" height="70"/>
+						 <div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+						</li>
+			    </foreach> 
+		</ul>
+	</div>
+</div>
+<!--main banner end-->
+<!--footer Scroll start-->
+<div id="footerscrollbg">
+    <div id="Marquee_x">
+        <ul>
+            <li>
+					<php>
+			    	$tjms_all=sp_sql_posts('cid:163,164;field:tid,post_title,smeta;limit:11;order:post_date desc');
+			    </php>
+			    <foreach name="tjms_all" item="all">
+				    <php>
+				    $smeta=json_decode($all['smeta'],true);
+				    </php>
+                <div><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                	<img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" /><span>{$all.post_title}</span></a>
+                </div>
+			    </foreach>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--footer Scroll end-->
+<!--footerfriend end-->
+
+<include file="Public:footer" />
+<!--footerfriend end-->
+</body>
+</html>

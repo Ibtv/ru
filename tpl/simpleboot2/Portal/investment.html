@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="ar-AE">
+    <meta name="author" content="Powerless"> 
+    <meta name="Copyright" content="{$site_seo_title}">
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+<link rel="icon" href="__TMPL__Public/images/favicon.ico" type="image/ico">
+<link href="__TMPL__Public/style/base.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/style/investment.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="__TMPL__Public/js/lunbo.js"></script>
+<script src="__TMPL__Public/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/action.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("span.div").hide();
+ $(".sis-li li").hover(function(){
+  $("span.div",this).slideToggle(500);
+ });
+});
+</script>
+        <script type="text/javascript" language="javascript">  
+        function nofind(){
+        var img=event.srcElement;
+        img.src="__TMPL__Public/images/no-img.jpg";
+        img.onerror=null; 
+        }
+        </script>
+</head>
+<body>
+<!--headerbannerbg srart-->
+<div id="headerbannerbg">
+    <php>
+    $Инвестиция_all=sp_sql_posts('cid:25,26,27,28;field:tid,post_title,smeta;limit:3;order:post_date desc');
+    </php>
+    <foreach name="Инвестиция_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+        <ul>
+        <div><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="71" height="88" /></div>
+    	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+    </ul>
+    </foreach>
+</div>
+<!--headerbannerbg end-->
+<!--nav start-->
+<div id="navbg">
+	<ul>
+		<li><a href="{:u('list/index',array('id'=>141))}">Передовые технологии</a></li>
+		<li><a href="{:u('list/index',array('id'=>142))}">IT</a></li>
+		<li><a href="{:u('list/index',array('id'=>143))}">Патенты&лицензии</a></li>
+		<li><a href="{:u('list/index',array('id'=>144))}">Экология</a></li>
+		<li><a href="{:u('list/index',array('id'=>145))}">Медецина</a></li>
+	</ul>
+</div>
+<!--nav end-->
+<!--jslunbo start-->
+<div class="focus_img">
+  <div class="big_area">
+    <div class="big_img" id="con_1"></div>
+    <div class="titlebg"></div>
+    <h3 id="h2title"></h3>
+    <div id="intro" style="dispaly:none;"></div>
+  </div>
+  <div class="thurmb" id="con_2"></div>
+</div>
+<!--focus_img end-->
+	<script type="text/javascript"> 
+	var focusImg= new FocusImg();
+	focusImg.bigDiv="con_1";
+	focusImg.smallDiv="con_2";
+	focusImg.imgW=600;
+	focusImg.imgH=400;
+	focusImg.sTime=5000;
+	focusImg.titleDiv="h2title";
+	focusImg.introDiv="intro";
+	 
+	 <php>
+    $Новости_all=sp_sql_posts('cid:141;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+    </php>
+    <foreach name="Новости_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+	var s = {};
+	s.bigimg="{$site_host}data/upload/{$smeta.thumb}";
+	s.title="{$all.post_title}";
+	s.intro="<span>{$all.post_excerpt}</span>";
+	s.url="{:U('article/index',array('id'=>$all['tid']))}";
+	focusImg.imgList.push(s);
+    </foreach>
+	
+
+	 
+	 
+	focusImg.init();
+	focusImg.autoPlay();
+	</script>
+<!--jslunbo end-->
+<!--contentbanner start-->
+<div id="bannerbg">
+	 <ul>
+    	<php>
+            $investment_t=sp_getslide('investment_t');
+        </php>
+        <foreach name="investment_t" item="t"><php>break;</php></foreach>
+        <li><img onerror="nofind();"  src="{$site_host}data/upload/{$t.slide_pic}" alt="{t.slide_name}" width="960" height="111"/></li>
+	 </ul>
+</div>
+<!--contentbanner end-->
+<!--main start-->
+<div id="mainnewsbg">
+      <div class="sidenewsnav"><a href="{:u('list/index',array('id'=>142))}">IT</a></div>
+      <div class="leftnewsbg">
+     <php>
+    $инвестиция_all=sp_sql_posts('cid:142;field:tid,post_title,post_excerpt,smeta;limit:9;order:post_date desc');
+    </php>
+    <foreach name="инвестиция_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+        <ul>
+            <div><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="102" height="100"/></div>
+            <li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+        </ul>
+    </foreach>
+      </div>
+</div>
+    	
+<div id="newsbannerbg">
+		<php>
+            $investment_c=sp_getslide('investment_c');
+        </php>
+        <foreach name="investment_c" item="c"><php>break;</php></foreach>
+        <li><img onerror="nofind();"  src="{$site_host}data/upload/{$c.slide_pic}" alt="{c.slide_name}" width="960" height="111"/></li>
+	<div class="bannernavbg"><a href="{:u('list/index',array('id'=>143))}">Патенты&лицензии</a></div>
+	<div class="informationbg">
+     <php>
+    $Слияние_all=sp_sql_posts('cid:143;field:tid,post_title,post_excerpt,smeta;limit:9;order:post_date desc');
+    </php>
+    <foreach name="Слияние_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+        <ul>
+            <div><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="102" height="100"/></div>
+            <li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+        </ul>
+    </foreach>
+	</div>
+</div>
+
+
+
+<div id="mainnewsbg">
+      <div class="sidenewsnav"><a href="{:u('list/index',array('id'=>144))}">Экология</a></div>
+      <div class="middlenewsbg">
+		<ul class="sis-li">
+    <php>
+    $Слияние_all=sp_sql_posts('cid:144;field:tid,post_title,post_excerpt,smeta;limit:8;order:post_date desc');
+    </php>
+    <foreach name="Слияние_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+        <li>
+            <span class="v1">
+                <a href=""><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="154" /></a>
+                <span class="div">
+                    <h3><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h3>
+                    <span class="txt"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></span>
+                </span>
+            </span>
+            <span class="v2">
+            	<h4><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h4>
+            </span>
+		</li>
+    </foreach>
+    
+</ul>
+      </div>
+</div>
+<div>
+	
+</div>
+<div class="advertbg">
+	<ul>
+    	<php>
+            $investment_b=sp_getslide('investment_b');
+        </php>
+        <foreach name="investment_b" item="b"><php>break;</php></foreach>
+        <img onerror="nofind();"  src="{$site_host}data/upload/{$b.slide_pic}" alt="{b.slide_name}" width="960" height="111"/>
+	</ul>
+</div>
+<div id="mainnewsbg">
+      <div class="sidenewsnav"><a href="{:u('list/index',array('id'=>145))}">Медецина</a></div>
+      <div class="leftnewsbg">
+     <php>
+    $возможности_all=sp_sql_posts('cid:145;field:tid,post_title,post_excerpt,smeta;limit:4,9;order:post_date desc');
+    </php>
+    <foreach name="возможности_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    </php>
+        <ul>
+            <div><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="102" height="100"/></div>
+            <li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+        </ul>
+    </foreach>
+      </div>
+</div>
+<!--lunbo js srart-->
+<div id="dHomePageCarousel">
+	<div id="dLocalHomesCarousel">
+    
+		<img onerror="nofind();" id="imgSmallLeft" class="imgBorder"  style="height:50px; width:70px; left:160px; bottom:5px;" onclick="clearInterval(autoplay);moveD('l');"/>
+		<img onerror="nofind();" id="imgMiddleLeft" class="imgBorder"  style="height:75px; width:100px; left:270px; bottom:5px;" onclick="clearInterval(autoplay);move('l');"/>
+		<img onerror="nofind();" id="imgBig" class="imgBorder"  style="height:110px;	width:150px; left:410px; bottom:5px;" onclick="openNewPage();"/>
+		<img onerror="nofind();" id="imgMiddleRight" class="imgBorder"  style="height:75px; width:100px;	left:600px;	bottom:5px;" onclick="clearInterval(autoplay);move('r');"/>
+		<img onerror="nofind();" id="imgSmallRight" class="imgBorder"  style="width:70px; height:50px; left:740px; bottom:5px;" onclick="clearInterval(autoplay);moveD('r');"/>
+		<img onerror="nofind();" id="imgHidden" class="imgBorder"  style="width:0px; height:0px; left:860px; bottom:5px;"/>
+	</div>
+	<div id="divCarouselInfo" class="divCarouselInfo">
+		<div class="divCarouselInfoLt">
+			<a id="btnCarouselLt" class="btnCarouselLT" style="left: 40px;" onclick="clearInterval(autoplay);move('l');"></a>
+			<table id="fadeSec" align="center">
+				<tbody>
+					<tr>
+						<td align="center"><a id="adname" class="name" href="#"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span id="adtime" class="org"></span></td>
+					</tr>
+					<tr>
+						<td align="center"><span id="adaddr"></span></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<a id="btnCarouselRt" class="btnCarouselRT" style="right: 40px;" onclick="clearInterval(autoplay);move('r');"></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function AdItem(name,address,Photo,time,url) {
+			this.name = name;
+			this.address = address;
+			this.Photo = Photo;
+			this.url = url;
+			this.time = time;
+		}
+		var ad = new Array();
+		<php>
+    $ярмарка_all=sp_sql_posts('cid:144,143;field:tid,post_title,post_excerpt,post_date,smeta;limit:9,5;order:post_date desc');
+    $a=-1;
+    </php>
+    <foreach name="ярмарка_all" item="all">
+    <php>
+    $smeta=json_decode($all['smeta'],true);
+    $a++;
+    </php>
+		ad[{$a}] = new AdItem('{$all.post_title}','{$all.post_excerpt}','{$site_host}data/upload/{$smeta.thumb}','{$all.post_date}','{:U("article/index",array("id"=>$all["tid"]))}'); 
+    </foreach>
+    
+		var img = new Array();
+		img[0] = document.getElementById("imgSmallLeft");
+		img[1] = document.getElementById("imgMiddleLeft");
+		img[2] = document.getElementById("imgBig");
+		img[3] = document.getElementById("imgMiddleRight");
+		img[4] = document.getElementById("imgSmallRight");
+		img[5] = document.getElementById("imgHidden");
+	
+		var position = 0;
+		for(i=0;i<img.length;i++){
+			img[i].src = ad[i].Photo;
+		}
+
+		var adname = document.getElementById("adname");
+		var adaddr = document.getElementById("adaddr");
+		var adtime = document.getElementById("adtime");
+
+		var cur = 2;
+		adname.href = ad[2].url;
+		if(navigator.userAgent.indexOf("Firefox")>0){
+			adname.textContent = ad[2].name;
+			adaddr.textContent = ad[2].address;
+			adtime.textContent = ad[2].time;
+		} else {
+			adname.innerText = ad[2].name;
+			adaddr.innerText = ad[2].address;
+			adtime.innerText = ad[2].time;
+		}
+	</script>
+</div>
+<!--main end-->
+<!--footer  start-->
+<include file="Public:footer" />
+<!--footer end-->
+</body>
+</html>

@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span,    
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,   
+a, abbr, acronym, address, big, cite, code,   
+img, ins, kbd, q, s, samp,   
+small, strike, strong,    
+dl, dt, dd, input, ol, ul, li,   
+fieldset, label, legend,
+caption, tbody, tfoot, thead, tr, th{   
+    margin:0;  
+    padding: 0;   
+    border: 0;    
+	background: transparent;
+}   
+body {
+	font-family:"Microsoft YaHei";
+	font-size:12px;
+	line-height:18px;
+}   
+ol, ul {
+    list-style: none;   
+}     
+blockquote:before, blockquote:after,
+table {
+    border-collapse: collapse;      
+}
+li{
+	list-style:none
+} 
+a{ text-decoration:none; color:#000;}
+p{text-indent:2em;}
+#headnavbg{background:#39836e; width:960px;margin:0 auto; overflow:hidden;}
+#headnavbg ul{width:960px; height:50px;}
+#headnavbg ul li{font-size:16px;text-align:center; float:left;width: 184px;margin: 25px 2px;}
+#headnavbg ul li:hover{background:#fff; }
+.marqueeleft{height:50px;width:960px;overflow:hidden;margin:0px auto;}
+.marqueeleft ul{float:left;}
+.marqueeleft li{float:left;display:inline;height:50px; line-height:50px; font-size:18px; overflow:hidden;}
+.marqueeleft li a{ margin:0 15px;}
+.aqq{width:960px; margin:0 auto; overflow:hidden;}
+.clear{clear:both;}
+.banner{width:960px; margin:0 auto;}
+.center_one{width:960px; height:440px; margin:0 auto; border-top:10px #005EA5 solid;}
+.center_one_img{float:left; padding-top:15px; padding-bottom:15px; padding-right:15px;}
+.center_text{float:right; width:297px; height:421px; overflow:hidden; line-height:32px; margin-top:15px; font-size:14px; color:#6F777B;}
+.center_lb{width:960px; height:320px; margin:0 auto; line-height:24px;}
+.center_lb ul li{float:left;margin: 0 10px;}
+.documents{width:960px;height: 400px; margin:0 auto; margin-top:20px;}
+.documents_top{width:960px; font-size:22px; height:25px; font-weight:bold; color:#0B0C0C; border-bottom:5px #00AD93 solid;}
+.announcements_tit{font-size:16px; font-weight:bold;}
+.announcements{float:left; width:320px; margin-top:5px;}
+.announcements ul li{border-bottom:1px #BFC1C3 solid; line-height:30px; margin-top:5px;}
+.announcements ul{margin-bottom:10px;}
+.consultations_con{float:right;}
+.consultations_con ul{margin-top:20px;}
+.consultations_con ul li{float:left;}
+.gengduo a{color:#398384; text-decoration:underline;}
+.ministers{width:960px;height: 730px; margin:20px auto; padding-bottom:20px; border-top:10px #00AD93 solid;border-bottom: 1px #BFC1C3 solid;}
+.ministers ul{margin-top:15px;}
+.ministers ul li{float:left;line-height:24px; margin: 5px 0;width: 236px;height: 350px;overflow: hidden;}

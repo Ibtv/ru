@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="ar-AE">
+    <meta name="author" content="Powerless"> 
+    <meta name="Copyright" content="{$site_seo_title}">
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+<link rel="icon" href="__TMPL__Public/images/favicon.ico" type="image/ico">
+<link href="__TMPL__Public/style/base.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/style/news.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__TMPL__Public/js/tab.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/slotmachine.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/zzsc.js"></script>
+        <script type="text/javascript" language="javascript">  
+        function nofind(){
+        var img=event.srcElement;
+        img.src="__TMPL__Public/images/no-img.jpg";
+        img.onerror=null; 
+        }
+        </script>
+</head>
+<body>
+<!--header nav start-->
+<div id="headernavbg">
+	<ul>
+		<li><a href="{:u('list/index',array('id'=>73))}">Новости</a></li>
+		<li><a href="{:u('list/index',array('id'=>74))}">Политика</a></li>
+		<li><a href="{:u('list/index',array('id'=>75))}">Транспорт</a></li>
+		<li><a href="{:u('list/index',array('id'=>76))}">Важная Информация</a></li>
+	</ul>
+</div>
+<!--header nav end-->
+<!--content start-->
+<div id="contentbg">
+	<div class="leftnewsbg">
+    	<php>
+        $Китай_all=sp_sql_posts('cid:73,74;field:tid,post_excerpt,smeta;limit:3;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Китай_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <div class="lefttopimg">
+			<ul>
+				<li><a href="{:U('article/index',array('id'=>$all['tid']))}"><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="362" height="235"/></a></li>
+				<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</ul>
+		</div> 
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <ul class="hdnewsbg">
+			<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="136" height="76"></a></li>
+			<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</ul>
+            <php>
+            }
+            </php>
+        </foreach>
+	</div>
+	<div class="middlenewsbg">
+    	<php>
+        $Америка_all=sp_sql_posts('cid:75;field:tid,post_excerpt,smeta;limit:3;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Америка_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <div class="middletopimg">
+			<ul>
+				<li><a href="{:U('article/index',array('id'=>$all['tid']))}"><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}"  width="290" height="235"/></a></li>
+				<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</ul>
+		</div> 
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <ul class="mhdnewsbg">
+			<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="97" height="76"></a></li>
+			<div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+			</ul>
+            <php>
+            }
+            </php>
+        </foreach>
+	</div>
+	<div class="rightnewsbg">
+		<ul>
+        <php>
+            $news_rt=sp_getslide('news_rt');
+        </php>
+        <foreach name="news_rt" item="rt"><php>break;</php></foreach>
+        <li><img onerror="nofind();" src="{$site_host}data/upload/{$rt.slide_pic}" alt="{$rt.slide_name}" width="283" height="139" /></li>
+		</ul>
+		<div class="tab1" id="tab1">
+			<div class="menu">
+				<ul>
+					<li id="one1" onclick="setTab('one',1)">1</li>
+					<li id="one2" onclick="setTab('one',2)">2</li>
+					<li id="one3" onclick="setTab('one',3)">3</li>
+					<li id="one3" onclick="setTab('one',4)">4</li>
+					<li id="one3" onclick="setTab('one',5)">5</li>
+					<li id="one3" onclick="setTab('one',6)">6</li>
+				</ul>
+			</div>
+			<div class="menudiv">
+             <php>
+            $Европа_all=sp_sql_posts('cid:76;field:tid,post_excerpt,smeta;limit:6;order:post_date desc');
+            $a=0;
+            </php>
+            <foreach name="Европа_all" item="all">
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                 $a++;
+                </php>
+                <div id="con_one_{$a}">
+				<ul>
+					<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}"width="251" height="145"></a></li>
+					<div style="height: 140px;overflow: hidden;">
+                    	<a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a>
+                    </div>
+				</ul>
+				</div>
+            </foreach>
+			</div>
+		</div>
+	</div>
+</div>
+<!--content end-->
+<!--tabnews start-->
+<div id="tabnewsbg">
+	<div class="lefttabbg">
+		<ul>
+            <php>
+                $news_l=sp_getslide('news_l');
+            </php>
+            <foreach name="news_l" item="l"><php>break;</php></foreach>
+            <li><img onerror="nofind();" src="{$site_host}data/upload/{$l.slide_pic}" alt="{$l.slide_name}" width="665" height="110" /></li>
+
+		</ul>
+		<div id="page-wrap">
+			<div id="slot-machine-tabs">
+				<div class="box-wrapper">
+					<div id="one" class="content-box">
+            <php>
+            $Азиатско_all=sp_sql_posts('cid:73;field:tid,post_title,post_excerpt,smeta;limit:2,1;order:post_date desc');
+            </php>
+            <foreach name="Азиатско_all" item="all">
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                </php>
+                
+                <div class="col-one col">
+                    <a href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="197" height="225"/>
+                    </a>
+                </div>
+                <div class="col-two col">
+                    <h3><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></h3>
+                    <p><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></p>
+                </div>
+            </foreach>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="righttabnews">
+		<ul>
+            <php>
+                $news_rc=sp_getslide('news_rc');
+            </php>
+            <foreach name="news_rc" item="rc"><php>break;</php></foreach>
+            <li><img onerror="nofind();" src="{$site_host}data/upload/{$rc.slide_pic}" alt="{$rc.slide_name}" width="285" height="385" /></li>
+		</ul>
+	</div>
+</div>
+<!--tabnews end-->
+<!--main start-->
+<div id="mainbg">
+	<div class="mainbannerbg">
+    
+            <php>
+                $news_c=sp_getslide('news_c');
+            </php>
+            <foreach name="news_c" item="c"><php>break;</php></foreach>
+            <li><img onerror="nofind();" src="{$site_host}data/upload/{$c.slide_pic}" alt="{$c.slide_name}" width="960" height="90"/></li>
+	</div>
+	<div class="leftmemberbg">
+		<div class="firstmemberbg">
+          	<php>
+            $Америка_all=sp_sql_posts('cid:74;field:tid,post_excerpt,smeta;limit:6,12;order:post_date desc');
+            </php>
+            <foreach name="Америка_all" item="all">
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                </php>
+                    <ul>
+                        <li><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="196" height="147"/></li>
+                        <div><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></div>
+                    </ul>
+            </foreach>
+		</div>
+		
+		
+		
+	</div>
+	<div class="righthdnews">
+		<ul>
+            <php>
+            $Америка_all=sp_sql_posts('cid:75;field:tid,post_excerpt;limit:6,10;order:post_date desc');
+            </php>
+            <foreach name="Америка_all" item="all">
+					<li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></li>
+            </foreach>
+		</ul>
+            <php>
+                $news_rd=sp_getslide('news_rd');
+            </php>
+            <foreach name="news_rd" item="rd"><php>break;</php></foreach>
+            <div><img onerror="nofind();" src="{$site_host}data/upload/{$rd.slide_pic}" alt="{$rd.slide_name}" width="275" height="410"/></div>
+	</div>
+</div>
+<!--main end-->
+<!--footer start-->
+<div id="footerbg">
+   <div class="case">
+    <div class="title cf">
+	<h2 class="fl"></h2>
+      <ul class="title-list fr cf ">
+        <li class="on">Новости</li>
+        <li>Политика</li>
+        <li>Транспорт</li>
+        <li>Важная Информация</li>
+        
+        <p><b></b></p>
+      </ul>
+    </div>
+    <div class="product-wrap">
+     <!--案例1-->
+      <div class="product show">
+        <ul class="cf">
+        <php>
+        $Китай_all=sp_sql_posts('cid:73;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Китай_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <li class="ml0" style="width:226px; height:236px; overflow:hidden">
+          <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+        </li>
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <li style="width:226px; height:236px;overflow:hidden">
+              <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+          </li>
+            <php>
+            }
+            </php>
+        </foreach>
+        </ul>
+      </div>
+      <!--案例2-->
+      <div class="product">
+        <ul class="cf">
+        <php>
+        $Америка_all=sp_sql_posts('cid:74;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Америка_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <li class="ml0" style="width:226px; height:236px; overflow:hidden">
+          <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+        </li>
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <li style="width:226px; height:236px;overflow:hidden">
+              <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+          </li>
+            <php>
+            }
+            </php>
+        </foreach>
+        </ul>
+      </div>
+      <!--案例3-->
+      <div class="product">
+        <ul class="cf">
+        <php>
+        $Европа_all=sp_sql_posts('cid:75;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Европа_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <li class="ml0" style="width:226px; height:236px; overflow:hidden">
+          <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+        </li>
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <li style="width:226px; height:236px;overflow:hidden">
+              <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+          </li>
+            <php>
+            }
+            </php>
+        </foreach>
+        </ul>
+      </div>
+      <!--案例4-->
+      <div class="product">
+        <ul class="cf">
+        <php>
+        $Азиатско_all=sp_sql_posts('cid:76;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="Азиатско_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <li class="ml0" style="width:226px; height:236px; overflow:hidden">
+          <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+        </li>
+            <php>
+            }
+            if($a > 1){
+            </php>
+            <li style="width:226px; height:236px;overflow:hidden">
+              <a class="imgwrap" href="{:U('article/index',array('id'=>$all['tid']))}">
+                    <img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="226" height="200">
+              </a>
+            <p class="mt10"><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></p>
+          </li>
+            <php>
+            }
+            </php>
+        </foreach>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer end-->
+<!--friendlink start-->
+
+<include file="Public:footer" />
+<!--friendlink end-->
+</body>
+</html>
